@@ -17,6 +17,7 @@
 #include "material_dynamic_colors.h"
 
 #include <cmath>
+#include <numbers>
 
 #include "../cam/cam.h"
 #include "../cam/hct.h"
@@ -27,8 +28,6 @@
 #include "tone_delta_pair.h"
 #include "variant.h"
 #include "../utils/utils.h"
-
-constexpr double M_PI = 3.14159265358979323846;
 
 namespace material_color_utilities {
 
@@ -53,7 +52,7 @@ Vec3 XyzInViewingConditions(Cam cam, ViewingConditions viewing_conditions) {
                              viewing_conditions.background_y_to_white_point_y),
                   0.73),
       1.0 / 0.9);
-  double h_rad = cam.hue * M_PI / 180.0;
+  double h_rad = cam.hue * std::numbers::pi / 180.0;
 
   double e_hue = 0.25 * (cos(h_rad + 2.0) + 3.8);
   double ac =
