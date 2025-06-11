@@ -10,4 +10,7 @@ file(GLOB_RECURSE SOURCES
     "src/*.cc"
 )
 add_library(material-color-utilities-cpp ${SOURCES})
-
+target_include_directories(material-color-utilities-cpp PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+    $<INSTALL_INTERFACE:include>
+)
